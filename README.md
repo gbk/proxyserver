@@ -6,8 +6,11 @@ replace online files with local ones
 ## Intent
 
 As a web developer , sometimes we want to debug online bugs .
+
 We have a local server environment , not the whole of online environment .
+
 We just want to point a few path to our local server , and the others just left thoses online .
+
 Proxyserver did this thing . It supports combo path like "http://foo.com/a/??b.js,mod/c.js" .
 
 ## Usage
