@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Proxy Server</title>
+<style>
+#tip {
+  opacity: 0;
+  display: inline-block;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  color: red;
+}
+#tip.show {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+#nul {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+</style>
+</head>
+<body>
+<form action="/pz" method="POST" target="nul">
+  <label for="location">Local Server Location:</label>
+  <input type="text" id="location" name="location" placeholder="http://127.0.0.1:8080"/>
+  <button type="submit">Save</button>
+  <span id="tip">Saved</span>
+  <br/>
+  <sub>A location must starts with "http"</sub>
+</form>
+<iframe id="nul" name="nul" src="/pz"></iframe>
+<script>
+var timeout;
+var tip = document.getElementById('tip');
+function saved() {
+  tip.className = 'show';
+  clearTimeout(timeout);
+  timeout = setTimeout(function() {
+    tip.className = '';
+  }, 2000);
+}
+function init(value) {
+  var location = document.getElementById('location');
+  location.value = value;
+  location.select();
+}
+</script>
+</body>
+</html>
