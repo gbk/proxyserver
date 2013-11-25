@@ -1,17 +1,18 @@
 var config = require('./config');
 
 exports.split = function(req, res, next) {
+  var url = req._url;
   var local = req.location;
   var remote = config.protocol + '://' + req.headers.host;
   req.locations = [];
-  if (req.url.indexOf('??') === -1) { // single resource
+  if (url.indexOf('??') === -1) { // single resource
     req.locations.push({
-      local: local + req.url,
-      remote: remote + req.url
+      local: local + url,
+      remote: remote + url
     });
     next();
   } else { // combo resource
-    var tmp = req.url.split('??');
+    var tmp = url.split('??');
     var prefix = tmp[0];
     tmp[1].split(',').forEach(function(path) {
       path = prefix + path;

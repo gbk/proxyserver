@@ -48,7 +48,7 @@ function saved() {
 }
 function init(value) {
   var location = document.getElementById('location');
-  location.value = value;
+  location.value = value || 'http://127.0.0.1:8080';
   location.select();
 }
 </script>

@@ -5,9 +5,9 @@ exports.protocol = 'http';
 
 exports.prepare = function(req, res, next) {
   var ip = req.connection.remoteAddress;
-  var url = req.url;
+  var url = req._url = req.url;
   if (url.charAt(0) !== '/') {
-    req.url = url = url.substring(url.indexOf('/', 8));
+    req._url = url = url.substring(url.indexOf('/', 8));
   }
   if (url === '/pz') { // do config
     if (req.method === 'POST') { // setter

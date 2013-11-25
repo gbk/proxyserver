@@ -28,13 +28,12 @@ function multiRequest(locations, success, failure) {
         !task && success(Buffer.concat(buffer));
       }
     }
-    function failureWrap(e) {
-      e.location = location;
-      failure(e);
-      buffer = null;
-    }
     request(location.local, successWrap, function() {
-      request(location.remote, successWrap, failureWrap);
+      request(location.remote, successWrap, function(e) {
+        e.location = location;
+        failure(e);
+        buffer = null;
+      });
     });
   });
 }
