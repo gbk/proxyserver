@@ -15,18 +15,18 @@ Proxyserver did this thing . It supports combo path like "http://foo.com/a/??b.j
 
 ## Usage
 
-1. Start the proxyserver , hostname or port must be different with your local server .
+* Start the proxyserver , hostname or port must be different with your local server .
 
 sudo node index.js
 
-2. Change the hosts file , pointing the online hostname to the ip address of proxyserver .
+* Change the hosts file , pointing the online hostname to the ip address of proxyserver .
 
 192.168.1.100  foo.com
 
-3. Visit foo.com and submit your local server location .
+* Visit foo.com and submit your local server location .
 
 http://192.168.1.101:8080
 
-4. Refresh your page and you can see the online files were replaced by the local ones .
+* Refresh your page and you can see the online files were replaced by the local ones .
 
-5. And now fix your bug !
+* And now fix your bug !
