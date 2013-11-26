@@ -14,7 +14,8 @@ exports.prepare = function(req, res, next) {
       mapping[ip] = req.body.location;
       res.end('<script>parent.saved()</script>');
     } else { // getter
-      res.end('<script>parent.init("' + (mapping[ip] || '') + '")</script>');
+      var local = mapping[ip] || ('http://' + ip + ':8080');
+      res.end('<script>parent.init("' + local + '")</script>');
     }
   } else { // do prepare
     req.location = mapping[ip];

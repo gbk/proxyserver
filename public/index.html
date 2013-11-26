@@ -29,7 +29,7 @@
 <body>
 <form action="/pz" method="POST" target="nul">
   <label for="location">Local Server Location:</label>
-  <input type="text" id="location" name="location" placeholder="http://127.0.0.1:8080"/>
+  <input type="text" id="location" name="location"/>
   <button type="submit">Save</button>
   <span id="tip">Saved</span>
   <br/>
@@ -48,7 +48,7 @@ function saved() {
 }
 function init(value) {
   var location = document.getElementById('location');
-  location.value = value || 'http://127.0.0.1:8080';
+  location.value = value;
   location.select();
 }
 </script>
